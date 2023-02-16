@@ -1,17 +1,32 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {Avatar} from "@mui/material";
 
-const UserAvatar = (props) => {
-    return (
-        <div>
-            <Avatar>H</Avatar>
-        </div>
-    );
+/**
+ * Функция обработки аватара пользователя
+ * @param userName
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const UserAvatar = ({userName}) => {
+    const [avatarShortName, setAvatarShortName] = useState('')
+
+    useEffect(() => {
+        setShortAvatarName()
+    },[userName])
+
+   const setShortAvatarName = () => {
+       const shortName = userName
+       if (shortName.length === 0) {
+           setAvatarShortName('A')
+       } else setAvatarShortName(shortName.substring(0, 1))
+    }
+
+    return <Avatar>{avatarShortName}</Avatar>
 };
 
 UserAvatar.propTypes = {
-    UserAvatar: PropTypes.func,
+    userName: PropTypes.string,
 }
 
 export default UserAvatar;
