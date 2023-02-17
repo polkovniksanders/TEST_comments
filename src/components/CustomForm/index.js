@@ -34,6 +34,8 @@ const CustomForm = ({formProps}) => {
 
             <div>
             <TextareaAutosize
+                minRows={3}
+                maxRows={10}
                 aria-label="empty textarea"
                 placeholder={FIELD_COMMENT}
                 onChange={ e => setCommentText(e.target.value)}
@@ -44,7 +46,7 @@ const CustomForm = ({formProps}) => {
 
 
             <Button
-                disabled={isDisabled}
+               // disabled={isDisabled}
                 onClick={()=> send()}
                 variant="contained">
                 Отправить
