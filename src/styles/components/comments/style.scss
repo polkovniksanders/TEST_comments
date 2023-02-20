@@ -1,0 +1,26 @@
+@import "../../constants";
+
+.comment {
+  &__heading {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__author {
+    color: $main-color;
+    font-weight: 700;
+    max-width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__wrapper {
+    margin-bottom: 1.5rem;
+    padding: 1rem .5rem;
+    border: 1px solid $main-color;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

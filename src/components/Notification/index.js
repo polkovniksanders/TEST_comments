@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import {Alert, Snackbar} from "@mui/material"
 
 const Notification = (props) => {
-  console.log(props)
+
   const setNotification = () => {
     switch (props.notificationType) {
       case 'success': return 'success'
       case 'warning': return 'warning'
-      case 'info': return 'info'
       case 'error': return 'error'
+      default: return 'info'
     }
   }
 
@@ -20,7 +20,7 @@ const Notification = (props) => {
           open={props.openNotification}
           onClose={()=> props.setOpenNotification(false)}
           autoHideDuration={3000} >
-          <Alert  severity="success" sx={{ width: '100%' }}>
+          <Alert severity="success" sx={{ width: '100%' }}>
             This is a success message!11
           </Alert>
         </Snackbar> : null

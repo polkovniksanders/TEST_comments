@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
-import {Avatar} from "@mui/material";
+import {Avatar} from "@mui/material"
 
 /**
  * Функция обработки аватара пользователя
@@ -9,24 +9,24 @@ import {Avatar} from "@mui/material";
  * @constructor
  */
 const UserAvatar = ({userName}) => {
-    const [avatarShortName, setAvatarShortName] = useState('')
+  const [ avatarShortName, setAvatarShortName ] = useState('')
 
-    useEffect(() => {
-        setShortAvatarName()
-    },[userName])
+  useEffect(() => {
+    setShortAvatarName()
+  },[ userName ])
 
-   const setShortAvatarName = () => {
-       const shortName = userName
-       if (shortName.length === 0) {
-           setAvatarShortName('A')
-       } else setAvatarShortName(shortName.substring(0, 1))
-    }
+  const setShortAvatarName = () => {
+    const shortName = userName
+    if (shortName.length === 0) {
+      setAvatarShortName('A')
+    } else setAvatarShortName(shortName.substring(0, 1))
+  }
 
-    return <Avatar>{avatarShortName}</Avatar>
-};
-
-UserAvatar.propTypes = {
-    userName: PropTypes.string,
+  return <Avatar>{avatarShortName}</Avatar>
 }
 
-export default UserAvatar;
+UserAvatar.propTypes = {
+  userName: PropTypes.string,
+}
+
+export default UserAvatar

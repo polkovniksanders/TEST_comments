@@ -8,15 +8,15 @@ import PropTypes from 'prop-types'
  * @constructor
  */
 const Name = ({userName}) => {
-    return (
-        <div>
-            {userName}
-        </div>
-    );
-};
-
-Name.propTypes = {
-    userName: PropTypes.string,
+  return (
+    <div>
+      {userName}
+    </div>
+  )
 }
 
-export default Name;
+Name.propTypes = {
+  userName: PropTypes.string,
+}
+
+export default Name

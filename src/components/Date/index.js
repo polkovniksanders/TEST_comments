@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import humanizeDuration from 'humanize-duration'
 
 /**
  * Функция отображения даты комментария
@@ -8,10 +9,9 @@ import PropTypes from 'prop-types'
  * @constructor
  */
 const CommentDate = (props) => {
-
   return (
     <div>
-      CommentDate
+      Опубликован: {humanizeDuration(props.createdDate, { language: "ru" })}
     </div>
   )
 }
