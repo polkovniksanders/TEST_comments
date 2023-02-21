@@ -46,9 +46,8 @@ const Comments = ({data, setData}) => {
 
     const findElement = data.find(item => item.id === comment.id)
     const elementToArray = [ findElement ]
-    const sliced = data.slice(1)
+    const sliced = data.filter(item => item.id !== comment.id)
     setData([ ...elementToArray, ...sliced  ])
-
   }
 
   const userCommentInfo = {
