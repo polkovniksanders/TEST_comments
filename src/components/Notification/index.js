@@ -2,10 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Alert, Snackbar} from "@mui/material"
 
-const Notification = (props) => {
+/**
+ * Функция отображения уведомлений
+ * @param notificationText {string}
+ * @param notificationType {string}
+ * @param openNotification {boolean}
+ * @param setNotificationText {function}
+ * @param setNotificationType {function}
+ * @param setOpenNotification {function}
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Notification = ({
+  notificationText,
+  notificationType,
+  openNotification,
+  setNotificationText,
+  setNotificationType,
+  setOpenNotification}
+) => {
 
   const setNotification = () => {
-    switch (props.notificationType) {
+    switch (notificationType) {
       case 'success': return 'success'
       case 'warning': return 'warning'
       case 'error': return 'error'
@@ -15,13 +33,13 @@ const Notification = (props) => {
 
   return (
     <div>
-      {props.openNotification ?
+      {openNotification ?
         <Snackbar
-          open={props.openNotification}
-          onClose={()=> props.setOpenNotification(false)}
-          autoHideDuration={3000} >
-          <Alert severity="success" sx={{ width: '100%' }}>
-            This is a success message!11
+          open={openNotification}
+          onClose={()=> setOpenNotification(false)}
+          autoHideDuration={3000}>
+          <Alert severity={setNotification()} sx={{ width: '100%' }}>
+            {notificationText}
           </Alert>
         </Snackbar> : null
       }
@@ -31,7 +49,13 @@ const Notification = (props) => {
 }
 
 Notification.propTypes = {
-  Notification: PropTypes.func,
+  notificationText : PropTypes.string,
+  notificationType: PropTypes.string,
+  openNotification: PropTypes.bool,
+  setNotificationText: PropTypes.func,
+  setNotificationType: PropTypes.func,
+  setOpenNotification: PropTypes.func,
+
 }
 
 export default Notification

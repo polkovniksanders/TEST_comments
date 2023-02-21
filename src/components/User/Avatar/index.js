@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {Avatar} from "@mui/material"
+import {stringAvatar} from "../../../utils/stringToColor"
 
 /**
  * Функция обработки аватара пользователя
@@ -10,7 +11,6 @@ import {Avatar} from "@mui/material"
  */
 const UserAvatar = ({userName}) => {
   const [ avatarShortName, setAvatarShortName ] = useState('')
-
   useEffect(() => {
     setShortAvatarName()
   },[ userName ])
@@ -22,7 +22,7 @@ const UserAvatar = ({userName}) => {
     } else setAvatarShortName(shortName.substring(0, 1))
   }
 
-  return <Avatar>{avatarShortName}</Avatar>
+  return <Avatar {...stringAvatar(userName)}>{avatarShortName}</Avatar>
 }
 
 UserAvatar.propTypes = {

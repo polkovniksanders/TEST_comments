@@ -1,26 +1,72 @@
 @import "../../constants";
 
 .comment {
+  height: 95vh;
+  padding: 1rem 1.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   &__heading {
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
+  }
+
+  &__rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $grey;
+  }
+
+  &__date {
+    color: $grey;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 75%;
+    margin-left: auto;
+  }
+
+  &__hidden {
+    color: $grey;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
   }
 
   &__author {
     color: $main-color;
     font-weight: 700;
-    max-width: 5%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-left: 1rem;
   }
 
   &__wrapper {
     margin-bottom: 1.5rem;
-    padding: 1rem .5rem;
-    border: 1px solid $main-color;
-    &:last-child {
-      margin-bottom: 0;
-    }
+    padding: 1rem .75rem;
+  }
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  &__name {
+    width: 50%;
+  }
+
+  &__text {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

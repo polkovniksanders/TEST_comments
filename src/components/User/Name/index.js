@@ -7,16 +7,18 @@ import PropTypes from 'prop-types'
  * @returns {JSX.Element}
  * @constructor
  */
-const Name = ({userName}) => {
+const UserName = ({userName, className}) => {
   return (
-    <div>
-      {userName}
+    <div className={className}>
+      <h4 >
+        {userName}
+      </h4>
     </div>
   )
 }
 
-Name.propTypes = {
+UserName.propTypes = {
   userName: PropTypes.string,
 }
 
-export default Name
+export default UserName

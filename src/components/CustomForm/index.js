@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {Button, TextareaAutosize, TextField} from "@mui/material"
-import {NAME_LENGTH, COMMENT_LENGTH, FIELD_NAME, FIELD_COMMENT} from "../../constants/validation"
+import {FIELD_NAME, FIELD_COMMENT} from "../../constants/validation"
 
 /**
  *
@@ -10,55 +10,49 @@ import {NAME_LENGTH, COMMENT_LENGTH, FIELD_NAME, FIELD_COMMENT} from "../../cons
  * @constructor
  */
 const CustomForm = ({formProps}) => {
-  const {name, setName, commentText, setCommentText, error, setError, send} = formProps
+  const {name, setName, commentText, setCommentText, send, notificationType} = formProps
 
-  const setCommentDate = () => {
-    let date = Date.now()
-
+  const textAreaStyle = {
+    width: '100%',
+    minHeight: '45px',
+    height: '45px',
+    maxHeight: '540px',
+    margin: '1.5rem 0',
   }
 
-  useEffect(() => setCommentDate, [])
-
-  /*
-    * Отключаем" кнопку, пока не заполнено имя или комментарий. Это дополнительная проверка к основной.
-    * В зависимости от требований заказчика ее можно отключить и оставить обработчик только в функции send
-    * */
-  const isDisabled = (name && name.length <= NAME_LENGTH) || (commentText && commentText <= COMMENT_LENGTH)
-
   return (
-    <>
-      <div>
+    <div className={'post'}>
+      <div className={'post__name'}>
         <TextField
           id="outlined-basic"
           label={FIELD_NAME}
           variant="outlined"
           value={name}
           onChange={ e => setName(e.target.value)}
+          style={textAreaStyle}
         />
       </div>
 
-
-      <div>
+      <div className={'post__text'}>
         <TextareaAutosize
-          minRows={3}
-          maxRows={10}
-          aria-label="empty textarea"
+          minRows={6}
+          maxRows={12}
+          aria-label="textarea"
           placeholder={FIELD_COMMENT}
           onChange={ e => setCommentText(e.target.value)}
           value={commentText}
-          style={{ width: 200 }}
+          style={textAreaStyle}
         />
       </div>
 
-
       <Button
-        // disabled={isDisabled}
+        size={'large'}
         onClick={()=> send()}
         variant="contained">
         Отправить
       </Button>
 
-    </>
+    </div>
   )
 }
 

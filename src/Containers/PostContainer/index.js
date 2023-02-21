@@ -10,7 +10,7 @@ const PostContainer = (props) => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: '1.5rem',
   }
 
   return (
