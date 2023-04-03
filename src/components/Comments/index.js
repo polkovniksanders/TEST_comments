@@ -48,6 +48,8 @@ const Comments = ({data, setData}) => {
     const elementToArray = [ findElement ]
     const sliced = data.filter(item => item.id !== comment.id)
     setData([ ...elementToArray, ...sliced  ])
+    console.log(sliced)
+    console.log(elementToArray)
   }
 
   const userCommentInfo = {

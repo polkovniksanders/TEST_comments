@@ -29,3 +29,5 @@
    на github pages.
   - Плюсом будет наличие комментариев в формате JSDoc.
   - Будет плюсом использование styled-components для стилизации
+
+![Image alt](https://github.com/polkovniksanders/test_comments/raw/main/public/preview.jpg)
